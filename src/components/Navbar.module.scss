@@ -1,0 +1,16 @@
+.menu {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    z-index: 5;
+    padding-top: 3rem;
+
+    li {
+        color: #fff;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}
