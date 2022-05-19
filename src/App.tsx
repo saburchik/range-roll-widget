@@ -1,6 +1,7 @@
 // == Base:
 import React from 'react'
 import { useEffect, useRef, useState } from 'react'
+import { IMainState } from './types'
 // == Styles:
 import './App.scss'
 // == Components:
@@ -26,7 +27,7 @@ const App: React.FC = () => {
   }
 
   const rangeIndex = (activeRangeIndex: number) => {
-    const active = ' active'
+    const active: string = ' active'
     // == CASE 1:
     if (activeRangeIndex === 1) {
       setImg1(active)
@@ -57,28 +58,38 @@ const App: React.FC = () => {
     }
   }
 
+  const mainState: IMainState[] = [
+    { id: 1, classActive: img1, title: "Page №1" },
+    { id: 2, classActive: img2, title: "Page №2" },
+    { id: 3, classActive: img3, title: "Page №3" },
+    { id: 4, classActive: img4, title: "Page №4" },
+  ]
+
   return (
     <div className="app" ref={screen} >
       <nav className="app__navigation">
         <ul className="nav__items">
-          <li><button className={"nav__btn" + img1} onClick={() => toggleValue(Number(1))}>Page №1</button></li>
-          <li><button className={"nav__btn" + img2} onClick={() => toggleValue(Number(2))}>Page №2</button></li>
-          <li><button className={"nav__btn" + img3} onClick={() => toggleValue(Number(3))}>Page №3</button></li>
-          <li><button className={"nav__btn" + img4} onClick={() => toggleValue(Number(4))}>Page №4</button></li>
+          {mainState.map(s => (
+            <li key={s.id}>
+              <button
+                className={"nav__btn" + s.classActive}
+                onClick={() => toggleValue(Number(s.id))}
+                data-testid={"btn" + s.id}
+              >{s.title}</button>
+            </li>
+          ))}
         </ul>
         <label className="nav__range">
           <input type="range" min="1" max="4"
             className="input__range"
             value={inputValue}
             onChange={(e) => toggleValue(Number(e.currentTarget.value))}
+            data-testid="range"
           />
         </label>
       </nav>
       <ul className="range__pages" style={{ transform: smoothScroll }}>
-        <li className={"img1" + img1} />
-        <li className={"img2" + img2} />
-        <li className={"img3" + img3} />
-        <li className={"img4" + img4} />
+        {mainState.map(s => <li key={s.id} className={"page" + s.id + s.classActive} />)}
       </ul>
     </div>
   )
