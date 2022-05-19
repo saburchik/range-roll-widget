@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react'
 import { IMainState } from './types'
 // == Styles:
 import './App.scss'
-// == Components:
 
 const App: React.FC = () => {
   const [inputValue, setInputValue] = useState<number>(1)
