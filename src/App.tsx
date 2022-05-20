@@ -1,24 +1,19 @@
 // == Base:
-import React from 'react'
-import { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
+import useElementSize from './hooks/useElementSize'
 import { IMainState } from './types'
 // == Styles:
 import './App.scss'
 
 const App: React.FC = () => {
+
   const [inputValue, setInputValue] = useState<number>(1)
   const [smoothScroll, setSmoothScroll] = useState<string>('none')
-  const [height, setHeight] = useState<number>(0)
   const [img1, setImg1] = useState<string>(' active')
   const [img2, setImg2] = useState<string>('')
   const [img3, setImg3] = useState<string>('')
   const [img4, setImg4] = useState<string>('')
-  const screen = useRef<HTMLDivElement | null>(null)
-
-  // eslint-disable-next-line 
-  useEffect(() => {
-    setHeight(screen.current!.clientHeight);
-  })
+  const [screenHeight, { height }] = useElementSize()
 
   const toggleValue = (activeRangeIndex: number) => {
     setInputValue(activeRangeIndex)
@@ -65,7 +60,7 @@ const App: React.FC = () => {
   ]
 
   return (
-    <div className="app" ref={screen} >
+    <div className="app" ref={screenHeight}>
       <nav className="app__navigation">
         <ul className="nav__items">
           {mainState.map(s => (
