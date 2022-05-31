@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/range-roll-widget/static/css/main.749baec1.css",
-    "main.js": "/range-roll-widget/static/js/main.714f38bc.js",
+    "main.js": "/range-roll-widget/static/js/main.77417401.js",
     "static/media/img2.jpg": "/range-roll-widget/static/media/img2.efe52caaa1a9016e9102.jpg",
     "static/media/img4.jpg": "/range-roll-widget/static/media/img4.6cd5d12d437f5ca0e686.jpg",
     "static/media/img1.jpg": "/range-roll-widget/static/media/img1.bf52e5f8dac9015e583c.jpg",
     "static/media/img3.jpg": "/range-roll-widget/static/media/img3.bf563415932e3339674a.jpg",
     "index.html": "/range-roll-widget/index.html",
     "main.749baec1.css.map": "/range-roll-widget/static/css/main.749baec1.css.map",
-    "main.714f38bc.js.map": "/range-roll-widget/static/js/main.714f38bc.js.map"
+    "main.77417401.js.map": "/range-roll-widget/static/js/main.77417401.js.map"
   },
   "entrypoints": [
     "static/css/main.749baec1.css",
-    "static/js/main.714f38bc.js"
+    "static/js/main.77417401.js"
   ]
 }
